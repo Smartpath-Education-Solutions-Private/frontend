@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             Int      @id @default(autoincrement())
+  name           String
+  email          String   @unique
+  password       String
+  profilePicture String?
+  courses        Course[]
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Course {
+  id          Int       @id @default(autoincrement())
+  title       String
+  description String
+  category    String
+  author      User      @relation(fields: [authorId], references: [id])
+  authorId    Int
+  status      String
+  image       String?
+  chapters    Chapter[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Chapter {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String?
+  videoLink String?
+  course    Course   @relation(fields: [courseId], references: [id])
+  courseId  Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
