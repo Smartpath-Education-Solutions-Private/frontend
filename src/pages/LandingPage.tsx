@@ -1,15 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Book, Users, Brain, Award, BarChart, Zap, Globe } from 'lucide-react';
+import { Link, Navigate } from 'react-router-dom';
+import { Book, Users, Brain, Award, BarChart, Zap, Globe, ChevronRight } from 'lucide-react';
+import { useAppContext } from '../context/AppContext';
+import AnimatedHero from '../components/AnimatedHero';
+import FeatureCard from '../components/FeatureCard';
+import TestimonialCard from '../components/TestimonialCard';
 
 const LandingPage = () => {
+  const { state } = useAppContext();
+
+  if (state.isAuthenticated) {
+    return <Navigate to="/dashboard" />;
+  }
+
   return (
     <div className="bg-gradient-to-b from-blue-50 to-white min-h-screen">
       {/* Hero Section */}
-      <header className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
-        <div className="container mx-auto px-4 py-20">
+      <header className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white overflow-hidden">
+        <div className="container mx-auto px-4 py-20 relative">
           <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="md:w-1/2 mb-8 md:mb-0">
+            <div className="md:w-1/2 mb-8 md:mb-0 z-10">
               <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
                 Unlock Your Potential with Smart Path Learning
               </h1>
@@ -17,8 +27,9 @@ const LandingPage = () => {
                 Embark on a personalized learning journey powered by AI and guided by industry experts.
               </p>
               <div className="space-x-4">
-                <Link to="/signup" className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold text-lg hover:bg-blue-50 transition duration-300 shadow-lg hover:shadow-xl">
+                <Link to="/signup" className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold text-lg hover:bg-blue-50 transition duration-300 shadow-lg hover:shadow-xl inline-flex items-center">
                   Get Started
+                  <ChevronRight className="ml-2 h-5 w-5" />
                 </Link>
                 <Link to="/signin" className="bg-blue-500 text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-blue-400 transition duration-300 shadow-lg hover:shadow-xl">
                   Sign In
@@ -76,14 +87,17 @@ const LandingPage = () => {
             <TestimonialCard
               quote="Smart Path Learning transformed my career. The AI-powered recommendations and expert mentorship were game-changers!"
               author="Sarah J., Software Engineer"
+              image="https://randomuser.me/api/portraits/women/1.jpg"
             />
             <TestimonialCard
               quote="The interactive content and global community made learning enjoyable and helped me stay motivated throughout my journey."
               author="Michael L., Data Scientist"
+              image="https://randomuser.me/api/portraits/men/2.jpg"
             />
             <TestimonialCard
               quote="Earning a recognized certificate through Smart Path Learning opened up new opportunities in my field. Highly recommended!"
               author="Emily R., UX Designer"
+              image="https://randomuser.me/api/portraits/women/3.jpg"
             />
           </div>
         </div>
@@ -96,51 +110,14 @@ const LandingPage = () => {
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Join Smart Path Learning today and unlock a world of possibilities. Your journey to success starts here!
           </p>
-          <Link to="/signup" className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold text-lg hover:bg-blue-50 transition duration-300 shadow-lg hover:shadow-xl inline-block">
+          <Link to="/signup" className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold text-lg hover:bg-blue-50 transition duration-300 shadow-lg hover:shadow-xl inline-flex items-center">
             Start Learning Now
+            <ChevronRight className="ml-2 h-5 w-5" />
           </Link>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-800 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-8 md:mb-0">
-              <h3 className="text-2xl font-bold mb-2">Smart Path Learning</h3>
-              <p className="text-gray-400">Empowering learners worldwide</p>
-            </div>
-            <div className="flex flex-wrap justify-center md:justify-end space-x-6">
-              <Link to="/about" className="hover:text-blue-300 mb-2 md:mb-0">About</Link>
-              <Link to="/contact" className="hover:text-blue-300 mb-2 md:mb-0">Contact</Link>
-              <Link to="/privacy" className="hover:text-blue-300 mb-2 md:mb-0">Privacy Policy</Link>
-              <Link to="/terms" className="hover:text-blue-300 mb-2 md:mb-0">Terms of Service</Link>
-            </div>
-          </div>
-          <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
-            <p>&copy; 2024 Smart Path Learning. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
-
-const FeatureCard = ({ icon, title, description }) => (
-  <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
-    <div className="flex items-center justify-center mb-6">
-      {icon}
-    </div>
-    <h3 className="text-2xl font-semibold mb-4 text-center">{title}</h3>
-    <p className="text-gray-600 text-center">{description}</p>
-  </div>
-);
-
-const TestimonialCard = ({ quote, author }) => (
-  <div className="bg-white p-8 rounded-lg shadow-lg">
-    <p className="text-gray-600 mb-6 italic">"{quote}"</p>
-    <p className="font-semibold text-right">- {author}</p>
-  </div>
-);
 
 export default LandingPage;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Bell, ChevronDown, LogIn, LogOut } from 'lucide-react';
+import { Bell, ChevronDown, LogOut } from 'lucide-react';
 import { useAppContext } from '../context/AppContext';
 
 const Navbar = () => {
@@ -29,9 +29,15 @@ const Navbar = () => {
           <div className="flex justify-between items-center h-16">
             <Link to="/" className="flex-shrink-0 flex items-center">
               <span className="text-xl font-bold text-primary-600">
-                ● Smart Path
+                Smart Path
               </span>
             </Link>
+            <div className="flex items-center space-x-4">
+              <Link to="/signin" className="text-gray-600 hover:text-gray-900">Sign In</Link>
+              <Link to="/signup" className="bg-primary-600 text-white px-4 py-2 rounded-md hover:bg-primary-700 transition duration-300">
+                Get Started
+              </Link>
+            </div>
           </div>
         </div>
       </nav>
@@ -45,7 +51,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 flex items-center">
               <span className="text-xl font-bold text-primary-600">
-                ● Smart Path
+                Smart Path
               </span>
             </Link>
             <div className="hidden md:block ml-10">
@@ -108,6 +114,7 @@ const Navbar = () => {
                     className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     onClick={handleSignOut}
                   >
+                    <LogOut className="w-4 h-4 inline-block mr-2" />
                     Sign out
                   </button>
                 </div>
