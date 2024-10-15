@@ -4,6 +4,7 @@ import { Play, Award, Book, Clock, TrendingUp, Users, Star, ChevronRight } from 
 import { useAppContext } from '../context/AppContext';
 
 const Profile = () => {
+
   const { state } = useAppContext();
   const { user, preferences } = state;
   const [activeTab, setActiveTab] = useState('overview');
@@ -38,16 +39,16 @@ const Profile = () => {
       <div className="bg-white rounded-lg shadow-md overflow-hidden">
         <div className="p-6">
           {/* User info section */}
-          <div className="flex items-center mb-6">
+          <div className="flex flex-col md:flex-row items-center mb-6">
             <img
               src={user.profilePicture}
               alt={user.name}
-              className="w-24 h-24 rounded-full mr-6 object-cover border-4 border-blue-100"
+              className="w-24 h-24 rounded-full mb-4 md:mb-0 md:mr-6 object-cover border-4 border-blue-100"
             />
-            <div>
+            <div className="text-center md:text-left">
               <h1 className="text-3xl font-bold mb-1">{user.name}</h1>
               <p className="text-gray-600">{user.email}</p>
-              <div className="mt-2 flex items-center">
+              <div className="mt-2 flex flex-wrap justify-center md:justify-start items-center">
                 <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">
                   Level {preferences.level || 1}
                 </span>
@@ -59,7 +60,7 @@ const Profile = () => {
           </div>
 
           {/* Stats section */}
-          <div className="flex space-x-4 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
             <StatCard icon={<Book className="w-6 h-6" />} value={mockData.enrolledCourses} label="Enrolled Courses" />
             <StatCard icon={<Award className="w-6 h-6" />} value={mockData.completedCourses} label="Completed Courses" />
             <StatCard icon={<Clock className="w-6 h-6" />} value={`${mockData.streak} days`} label="Learning Streak" />
@@ -106,7 +107,7 @@ const Profile = () => {
           </div>
 
           {/* Tabs section */}
-          <div className="flex space-x-4 mb-4">
+          <div className="flex flex-wrap space-x-4 mb-4">
             <TabButton active={activeTab === 'overview'} onClick={() => setActiveTab('overview')}>
               Overview
             </TabButton>
@@ -119,6 +120,7 @@ const Profile = () => {
           </div>
 
           {/* Tab content */}
+                 {/* Tab content */}
           {activeTab === 'overview' && (
             <div>
               <h2 className="text-xl font-semibold mb-4">Recent Activity</h2>
@@ -184,6 +186,8 @@ const Profile = () => {
               </div>
             </div>
           )}
+
+          
         </div>
       </div>
 
@@ -198,6 +202,7 @@ const Profile = () => {
     </div>
   );
 };
+
 
 const StatCard = ({ icon, value, label }) => (
   <div className="bg-gray-50 rounded-lg p-4 flex items-center">
@@ -231,5 +236,6 @@ const ActivityItem = ({ icon, title, timestamp }) => (
     </div>
   </div>
 );
+
 
 export default Profile;

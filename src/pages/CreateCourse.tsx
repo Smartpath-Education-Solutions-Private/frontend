@@ -8,11 +8,6 @@ const CreateCourse = () => {
   const { state, dispatch } = useAppContext();
   const [formType, setFormType] = useState('simple');
   
-  // Simple form state
-  const [simpleTitle, setSimpleTitle] = useState('');
-  const [simpleDescription, setSimpleDescription] = useState('');
-  const [simpleCategory, setSimpleCategory] = useState('');
-
   // Detailed form state
   const [courseTitle, setCourseTitle] = useState('');
   const [courseDescription, setCourseDescription] = useState('');
@@ -115,64 +110,7 @@ const CreateCourse = () => {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <h1 className="text-3xl font-bold mb-8">Create a course</h1>
-      
-      <div className="mb-6">
-        <button
-          className={`mr-4 px-4 py-2 rounded-md ${formType === 'simple' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
-          onClick={() => setFormType('simple')}
-        >
-          Simple Form
-        </button>
-        <button
-          className={`px-4 py-2 rounded-md ${formType === 'detailed' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
-          onClick={() => setFormType('detailed')}
-        >
-          Detailed Form
-        </button>
-      </div>
-
-      {formType === 'simple' ? (
-        <form onSubmit={handleSimpleSubmit} className="space-y-6">
-          <div>
-            <label htmlFor="simpleTitle" className="block text-sm font-medium text-gray-700">Course Title</label>
-            <input
-              type="text"
-              id="simpleTitle"
-              value={simpleTitle}
-              onChange={(e) => setSimpleTitle(e.target.value)}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="simpleDescription" className="block text-sm font-medium text-gray-700">Course Description</label>
-            <textarea
-              id="simpleDescription"
-              value={simpleDescription}
-              onChange={(e) => setSimpleDescription(e.target.value)}
-              rows={3}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-              required
-            ></textarea>
-          </div>
-          <div>
-            <label htmlFor="simpleCategory" className="block text-sm font-medium text-gray-700">Category</label>
-            <input
-              type="text"
-              id="simpleCategory"
-              value={simpleCategory}
-              onChange={(e) => setSimpleCategory(e.target.value)}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-              required
-            />
-          </div>
-          <div>
-            <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded-md">
-              Create Course
-            </button>
-          </div>
-        </form>
-      ) : (
+    
         <form onSubmit={handleDetailedSubmit} className="space-y-6">
           <div>
             <label htmlFor="courseTitle" className="block text-sm font-medium text-gray-700">Course Title</label>
@@ -440,7 +378,6 @@ const CreateCourse = () => {
             </button>
           </div>
         </form>
-      )}
 
       {showChapterModal && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full">

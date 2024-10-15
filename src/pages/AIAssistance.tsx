@@ -73,20 +73,21 @@ const AIAssistance = () => {
             </div>
           ))}
         </div>
-        <div className="flex items-center mb-4">
+        <div className="flex flex-col sm:flex-row items-center mb-4">
           <input
             type="text"
             placeholder="Ask a question..."
-            className="flex-grow p-2 border rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-grow p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2 sm:mb-0 sm:mr-2"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleAskQuestion()}
           />
           <button
-            className="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 transition-colors duration-200"
+            className="w-full sm:w-auto bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors duration-200"
             onClick={handleAskQuestion}
           >
-            <Send className="w-5 h-5" />
+            <Send className="w-5 h-5 inline-block mr-2" />
+            Send
           </button>
         </div>
         <div className="flex items-center">
@@ -124,7 +125,7 @@ const AIAssistance = () => {
       </div>
 
       {showModal && selectedQuestion && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-lg p-6 max-w-2xl w-full">
             <div className="flex justify-between items-start mb-4">
               <h3 className="text-xl font-semibold">{selectedQuestion.question}</h3>

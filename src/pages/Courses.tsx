@@ -23,7 +23,7 @@ const Courses = () => {
         rating: 4.8,
         studentsEnrolled: 12500,
         duration: '40 hours',
-        image: 'https://example.com/python-course.jpg',
+        image: 'https://www.educative.io/v2api/editorpage/5192733215686656/image/5751478798778368',
       },
       {
         id: 2,
@@ -34,7 +34,7 @@ const Courses = () => {
         rating: 4.9,
         studentsEnrolled: 8900,
         duration: '60 hours',
-        image: 'https://example.com/ml-course.jpg',
+        image: 'https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~COURSE!~advanced-machine-learning-algorithms/XDP~COURSE!~advanced-machine-learning-algorithms.jpeg',
       },
       {
         id: 3,
@@ -45,7 +45,7 @@ const Courses = () => {
         rating: 4.7,
         studentsEnrolled: 15600,
         duration: '80 hours',
-        image: 'https://example.com/webdev-course.jpg',
+        image: 'https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://www.filepicker.io/api/file/FSIjaoI2QtKWZL65cogd',
       },
       {
         id: 4,
@@ -56,7 +56,7 @@ const Courses = () => {
         rating: 4.6,
         studentsEnrolled: 10200,
         duration: '30 hours',
-        image: 'https://example.com/marketing-course.jpg',
+        image: 'https://www.fluidscapes.in/wp-content/uploads/2021/07/digital-marketing-for-dummies-digital-marketing-fundamentals-for-beginners.jpg',
       },
       {
         id: 5,
@@ -67,7 +67,7 @@ const Courses = () => {
         rating: 4.8,
         studentsEnrolled: 7800,
         duration: '45 hours',
-        image: 'https://example.com/datavis-course.jpg',
+        image: 'https://i.ytimg.com/vi/_8V5o2UHG0E/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAMdq4o-xRgoM_U3XJ9GHZi44QZUw',
       },
       // Add more courses as needed
     ]);
@@ -88,13 +88,14 @@ const Courses = () => {
     return 0;
   });
 
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <h1 className="text-3xl font-bold mb-8">Explore Courses</h1>
       
-      <div className="flex flex-col md:flex-row gap-8">
+      <div className="flex flex-col lg:flex-row gap-8">
         {/* Filters sidebar */}
-        <div className="w-full md:w-1/4">
+        <div className="w-full lg:w-1/4">
           <div className="bg-white rounded-lg shadow p-4 mb-6">
             <h2 className="text-xl font-semibold mb-4">Filters</h2>
             <div className="space-y-4">
@@ -138,7 +139,7 @@ const Courses = () => {
         </div>
 
         {/* Main content */}
-        <div className="w-full md:w-3/4">
+        <div className="w-full lg:w-3/4">
           {/* Search bar */}
           <div className="relative mb-6">
             <input

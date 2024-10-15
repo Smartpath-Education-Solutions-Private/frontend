@@ -9,7 +9,7 @@ const Dashboard = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [enrolledCourses, setEnrolledCourses] = useState([]);
 
-  useEffect(() => {
+   useEffect(() => {
     // In a real application, you would fetch this data from an API
     setEnrolledCourses([
       {
@@ -18,7 +18,7 @@ const Dashboard = () => {
         category: 'Computer Science',
         progress: 75,
         nextLesson: 'React Hooks',
-        image: 'https://example.com/react.jpg',
+        image: 'https://media.licdn.com/dms/image/D4D12AQHAdwhUzf-0oQ/article-cover_image-shrink_720_1280/0/1669015675782?e=2147483647&v=beta&t=hcLmEsmdvzzr2sWIc42B7wF7NByhq7270-WqeT7KTdw',
       },
       {
         id: 2,
@@ -26,7 +26,7 @@ const Dashboard = () => {
         category: 'Computer Science',
         progress: 40,
         nextLesson: 'Binary Trees',
-        image: 'https://example.com/dsa.jpg',
+        image: 'https://i.ytimg.com/vi/2ZLl8GAk1X4/maxresdefault.jpg',
       },
       {
         id: 3,
@@ -34,7 +34,7 @@ const Dashboard = () => {
         category: 'Marketing',
         progress: 90,
         nextLesson: 'Social Media Strategies',
-        image: 'https://example.com/marketing.jpg',
+        image: 'https://media.licdn.com/dms/image/D4E12AQGBYRM_gaYTHw/article-cover_image-shrink_600_2000/0/1653575742411?e=2147483647&v=beta&t=__MALta8Maevf8dNYvg_iXjBMs9j4yX_qPFHjzpC-5Q',
       },
       {
         id: 4,
@@ -42,7 +42,7 @@ const Dashboard = () => {
         category: 'Data Science',
         progress: 20,
         nextLesson: 'Supervised Learning',
-        image: 'https://example.com/ml.jpg',
+        image: 'https://i.ytimg.com/vi/i_LwzRVP7bg/maxresdefault.jpg',
       },
     ]);
   }, []);
@@ -58,16 +58,16 @@ const Dashboard = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <h1 className="text-3xl font-bold mb-8">Welcome back, {state.user?.name}!</h1>
       
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <StatCard icon={<Book />} value={enrolledCourses.length} label="Enrolled Courses" />
         <StatCard icon={<Clock />} value="47 hours" label="Total Learning Time" />
         <StatCard icon={<Award />} value="12" label="Certificates Earned" />
         <StatCard icon={<TrendingUp />} value="85%" label="Average Score" />
       </div>
 
-      <div className="flex flex-col md:flex-row gap-8">
+      <div className="flex flex-col lg:flex-row gap-8">
         {/* Left sidebar */}
-        <div className="w-full md:w-1/4">
+        <div className="w-full lg:w-1/4">
           <div className="bg-white rounded-lg shadow p-4 mb-6">
             <h2 className="text-xl font-semibold mb-4">Categories</h2>
             <div className="space-y-2">
@@ -110,7 +110,7 @@ const Dashboard = () => {
         </div>
 
         {/* Main content */}
-        <div className="w-full md:w-3/4">
+        <div className="w-full lg:w-3/4">
           {/* Search bar */}
           <div className="relative mb-6">
             <input
@@ -124,33 +124,33 @@ const Dashboard = () => {
           </div>
 
           {/* Learning Path Progress */}
-          <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
-            <h2 className="text-2xl font-semibold mb-4">Your Learning Path</h2>
-            <div className="space-y-4">
-              <LearningPathItem
-                title="Foundations of Computer Science"
-                progress={100}
-                totalCourses={5}
-                completedCourses={5}
-              />
-              <LearningPathItem
-                title="Data Structures and Algorithms"
-                progress={75}
-                totalCourses={4}
-                completedCourses={3}
-              />
-              <LearningPathItem
-                title="Machine Learning Fundamentals"
-                progress={30}
-                totalCourses={5}
-                completedCourses={1}
-              />
-            </div>
-            <Link to="/learning-path" className="text-blue-600 hover:text-blue-800 font-medium flex items-center mt-4">
-              View full learning path
-              <ArrowRight className="w-4 h-4 ml-1" />
-            </Link>
-          </div>
+          {/* <div className="bg-white rounded-lg shadow-sm p-6 mb-8"> */}
+            {/* <h2 className="text-2xl font-semibold mb-4">Your Learning Path</h2> */}
+            {/* <div className="space-y-4"> */}
+              {/* <LearningPathItem */}
+                {/* title="Foundations of Computer Science" */}
+                {/* progress={100} */}
+                {/* totalCourses={5} */}
+                {/* completedCourses={5} */}
+              {/* /> */}
+              {/* <LearningPathItem */}
+                {/* title="Data Structures and Algorithms" */}
+                {/* progress={75} */}
+                {/* totalCourses={4} */}
+                {/* completedCourses={3} */}
+              {/* /> */}
+              {/* <LearningPathItem */}
+                {/* title="Machine Learning Fundamentals" */}
+                {/* progress={30} */}
+                {/* totalCourses={5} */}
+                {/* completedCourses={1} */}
+              {/* /> */}
+            {/* </div> */}
+            {/* <Link to="/learning-path" className="text-blue-600 hover:text-blue-800 font-medium flex items-center mt-4"> */}
+              {/* View full learning path */}
+              {/* <ArrowRight className="w-4 h-4 ml-1" /> */}
+            {/* </Link> */}
+          {/* </div> */}
 
           {/* Enrolled courses */}
           <h2 className="text-2xl font-semibold mb-4">Your Enrolled Courses</h2>
@@ -166,17 +166,17 @@ const Dashboard = () => {
             <RecommendationCard
               title="Advanced JavaScript Concepts"
               category="Computer Science"
-              image="https://example.com/js.jpg"
+              image="https://miro.medium.com/v2/resize:fit:1400/1*YclJ1hp8CgncNJiFmZCCmg.jpeg"
             />
             <RecommendationCard
               title="UX/UI Design Principles"
               category="Design"
-              image="https://example.com/uxui.jpg"
+              image="https://www.excelptp.com/wp-content/uploads/2023/01/ui-ux-banner-img2.jpg"
             />
             <RecommendationCard
               title="Introduction to Blockchain"
               category="Technology"
-              image="https://example.com/blockchain.jpg"
+              image="https://res.cloudinary.com/cryptouniversitynetwork/image/upload/v1698151301/qz8m4cynfv3ighdfnu6k.jpg"
             />
           </div>
         </div>
@@ -184,6 +184,7 @@ const Dashboard = () => {
     </div>
   );
 };
+
 
 const StatCard = ({ icon, value, label }) => (
   <div className="bg-white rounded-lg shadow p-6 flex items-center">
