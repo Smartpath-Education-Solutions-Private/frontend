@@ -25,9 +25,6 @@ const LandingPage = () => {
                 </Link>
               </div>
             </div>
-            <div className="md:w-1/2">
-              <img src="/images/hero-image.svg" alt="Smart Path Learning" className="w-full max-w-md mx-auto" />
-            </div>
           </div>
         </div>
       </header>
@@ -121,7 +118,7 @@ const LandingPage = () => {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
-            <p>&copy; 2023 Smart Path Learning. All rights reserved.</p>
+            <p>&copy; 2024 Smart Path Learning. All rights reserved.</p>
           </div>
         </div>
       </footer>
