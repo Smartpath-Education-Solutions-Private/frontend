@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { Book, Users, Brain, Award, BarChart, Zap, Globe, ChevronRight } from 'lucide-react';
 import { useAppContext } from '../context/AppContext';
-import AnimatedHero from '../components/AnimatedHero';
 import FeatureCard from '../components/FeatureCard';
 import TestimonialCard from '../components/TestimonialCard';
 
