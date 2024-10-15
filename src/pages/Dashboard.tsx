@@ -256,30 +256,30 @@ const EventItem = ({ date, title, time }) => (
   </li>
 );
 
-const LearningPathItem = ({ title, progress, totalCourses, completedCourses }) => (
-  <div className="bg-gray-50 rounded-lg p-4">
-    <div className="flex justify-between items-center mb-2">
-      <h3 className="font-semibold">{title}</h3>
-      <span className="text-sm font-medium text-gray-500">
-        {completedCourses}/{totalCourses} courses
-      </span>
-    </div>
-    <div className="relative pt-1">
-      <div className="flex mb-2 items-center justify-between">
-        <div>
-          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200">
-            {progress}% Complete
-          </span>
-        </div>
-      </div>
-      <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-blue-200">
-        <div
-          style={{ width: `${progress}%` }}
-          className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"
-        ></div>
-      </div>
-    </div>
-  </div>
-);
+// const LearningPathItem = ({ title, progress, totalCourses, completedCourses }) => (
+//   <div className="bg-gray-50 rounded-lg p-4">
+//     <div className="flex justify-between items-center mb-2">
+//       <h3 className="font-semibold">{title}</h3>
+//       <span className="text-sm font-medium text-gray-500">
+//         {completedCourses}/{totalCourses} courses
+//       </span>
+//     </div>
+//     <div className="relative pt-1">
+//       <div className="flex mb-2 items-center justify-between">
+//         <div>
+//           <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200">
+//             {progress}% Complete
+//           </span>
+//         </div>
+//       </div>
+//       <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-blue-200">
+//         <div
+//           style={{ width: `${progress}%` }}
+//           className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"
+//         ></div>
+//       </div>
+//     </div>
+//   </div>
+// );
 
 export default Dashboard;
