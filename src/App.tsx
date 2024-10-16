@@ -25,6 +25,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
+import Leaderboard from './pages/Leaderboard';
 import { AppProvider, useAppContext } from './context/AppContext';
 
 const PrivateRoute = ({ children }) => {
@@ -48,6 +49,7 @@ function AppContent() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
+            <Route path="/leaderboard" element={<Leaderboard />} />
             {state.isAuthenticated && (
               <>
                 <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
