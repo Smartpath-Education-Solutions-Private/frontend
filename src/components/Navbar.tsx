@@ -113,6 +113,14 @@ const Navbar = () => {
                     Your Courses
                   </NavLink>
                 )}
+                {state.user.role === 'admin' && (
+                  <NavLink
+                    to="/admin-dashboard"
+                    active={location.pathname === '/admin-dashboard'}
+                  >
+                    Admin Dashboard
+                  </NavLink>
+                )}
               </div>
             </div>
           </div>
@@ -221,6 +229,14 @@ const Navbar = () => {
                 active={location.pathname === '/your-courses'}
               >
                 Your Courses
+              </MobileNavLink>
+            )}
+            {state.user.role === 'admin' && (
+              <MobileNavLink
+                to="/admin-dashboard"
+                active={location.pathname === '/admin-dashboard'}
+              >
+                Admin Dashboard
               </MobileNavLink>
             )}
           </div>

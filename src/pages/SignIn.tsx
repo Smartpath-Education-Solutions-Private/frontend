@@ -20,8 +20,16 @@ const SignIn = () => {
         id: 1,
         name: 'John Doe',
         email: email,
-        profilePicture: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        profilePicture:
+          'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        role: 'admin', // Set this to 'admin' for testing
       };
+      // const mockUser = {
+      //   id: 1,
+      //   name: 'John Doe',
+      //   email: email,
+      //   profilePicture: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      // };
 
       dispatch({ type: 'SIGN_IN', payload: mockUser });
       navigate('/dashboard');
@@ -41,7 +49,9 @@ const SignIn = () => {
 
       <div className="max-w-md w-full space-y-8 bg-white p-10 rounded-xl shadow-2xl z-10 relative">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+            Sign in to your account
+          </h2>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <input type="hidden" name="remember" defaultValue="true" />
@@ -90,10 +100,15 @@ const SignIn = () => {
           </div>
         </form>
 
-        {error && <p className="mt-2 text-center text-sm text-red-600">{error}</p>}
+        {error && (
+          <p className="mt-2 text-center text-sm text-red-600">{error}</p>
+        )}
 
         <div className="text-center">
-          <Link to="/signup" className="font-medium text-indigo-600 hover:text-indigo-500">
+          <Link
+            to="/signup"
+            className="font-medium text-indigo-600 hover:text-indigo-500"
+          >
             Don't have an account? Sign up
           </Link>
         </div>

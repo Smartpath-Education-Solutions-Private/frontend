@@ -1,5 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import LandingPage from './pages/LandingPage';
@@ -26,11 +31,21 @@ import Contact from './pages/Contact';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import Leaderboard from './pages/Leaderboard';
+import AdminDashboard from './pages/AdminDashboard';
 import { AppProvider, useAppContext } from './context/AppContext';
 
 const PrivateRoute = ({ children }) => {
   const { state } = useAppContext();
   return state.isAuthenticated ? children : <Navigate to="/" />;
+};
+
+const AdminRoute = ({ children }) => {
+  const { state } = useAppContext();
+  return state.isAuthenticated && state.user.role === 'admin' ? (
+    children
+  ) : (
+    <Navigate to="/" />
+  );
 };
 
 function AppContent() {
@@ -52,22 +67,142 @@ function AppContent() {
             <Route path="/leaderboard" element={<Leaderboard />} />
             {state.isAuthenticated && (
               <>
-                <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
-                <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
-                <Route path="/edit-profile" element={<PrivateRoute><EditProfile /></PrivateRoute>} />
-                <Route path="/courses" element={<PrivateRoute><Courses /></PrivateRoute>} />
-                <Route path="/courses/:id" element={<PrivateRoute><CourseDetails /></PrivateRoute>} />
-                <Route path="/ai-assistance" element={<PrivateRoute><AIAssistance /></PrivateRoute>} />
-                <Route path="/upload-course" element={<PrivateRoute><UploadCourse /></PrivateRoute>} />
-                <Route path="/assessment/:courseId" element={<PrivateRoute><Assessment /></PrivateRoute>} />
-                <Route path="/mentorship" element={<PrivateRoute><Mentorship /></PrivateRoute>} />
-                <Route path="/your-courses" element={<PrivateRoute><YourCourses /></PrivateRoute>} />
-                <Route path="/create-course" element={<PrivateRoute><CreateCourse /></PrivateRoute>} />
-                <Route path="/edit-course/:courseId" element={<PrivateRoute><EditCourse /></PrivateRoute>} />
-                <Route path="/review-and-publish/:chapterId" element={<PrivateRoute><ReviewAndPublish /></PrivateRoute>} />
-                <Route path="/take-assessment/:courseId" element={<PrivateRoute><TakeAssessment /></PrivateRoute>} />
-                <Route path="/upload-assessment/:chapterId" element={<PrivateRoute><UploadAssessment /></PrivateRoute>} />
-                <Route path="/learning-path" element={<PrivateRoute><LearningPath /></PrivateRoute>} />
+                <Route
+                  path="/dashboard"
+                  element={
+                    <PrivateRoute>
+                      <Dashboard />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/profile"
+                  element={
+                    <PrivateRoute>
+                      <Profile />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/edit-profile"
+                  element={
+                    <PrivateRoute>
+                      <EditProfile />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/courses"
+                  element={
+                    <PrivateRoute>
+                      <Courses />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/courses/:id"
+                  element={
+                    <PrivateRoute>
+                      <CourseDetails />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/ai-assistance"
+                  element={
+                    <PrivateRoute>
+                      <AIAssistance />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/upload-course"
+                  element={
+                    <PrivateRoute>
+                      <UploadCourse />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/assessment/:courseId"
+                  element={
+                    <PrivateRoute>
+                      <Assessment />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/mentorship"
+                  element={
+                    <PrivateRoute>
+                      <Mentorship />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/your-courses"
+                  element={
+                    <PrivateRoute>
+                      <YourCourses />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/create-course"
+                  element={
+                    <PrivateRoute>
+                      <CreateCourse />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/edit-course/:courseId"
+                  element={
+                    <PrivateRoute>
+                      <EditCourse />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/review-and-publish/:chapterId"
+                  element={
+                    <PrivateRoute>
+                      <ReviewAndPublish />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/take-assessment/:courseId"
+                  element={
+                    <PrivateRoute>
+                      <TakeAssessment />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/upload-assessment/:chapterId"
+                  element={
+                    <PrivateRoute>
+                      <UploadAssessment />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/learning-path"
+                  element={
+                    <PrivateRoute>
+                      <LearningPath />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/admin-dashboard"
+                  element={
+                    <AdminRoute>
+                      <AdminDashboard />
+                    </AdminRoute>
+                  }
+                />
               </>
             )}
             <Route path="*" element={<Navigate to="/" />} />
