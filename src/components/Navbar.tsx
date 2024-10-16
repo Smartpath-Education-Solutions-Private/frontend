@@ -71,6 +71,9 @@ const Navbar = () => {
                 <NavLink to="/mentorship" active={location.pathname === '/mentorship'}>
                   Mentorship
                 </NavLink>
+                <NavLink to="/leaderboard" active={location.pathname === '/leaderboard'}>
+                  Leaderboard
+                </NavLink>
                 {state.userMode === 'creator' && (
                   <NavLink to="/your-courses" active={location.pathname === '/your-courses'}>
                     Your Courses
